@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Sql Formatter</title>
+	<script type="text/javascript" src="js/require.min.js"></script>
+</head>
+<body>
+	<div style="height: 200px; margin: 30px auto 0px;">
+		<textarea id="sql_origin" style="width: 100%; height: 100%"></textarea>
+	</div>
+	<div style="text-align: center; margin-top: 30px;">
+		<button id="btn" style="font-size: 16px;">Format</button>
+	</div>
+	<div style="height: 200px; margin: 30px auto 0px;">
+		<textarea id="sql_format" style="width: 100%; height: 100%"></textarea>
+	</div>
+</body>
+</html>
+<script>
+window.onload = function(){
+	document.getElementById('btn').onclick = function(){
+		format('sql_origin', 'sql_format');
+	}
+}
+function format(sqlId, destId){
+	var sqlTxt = document.getElementById(sqlId);
+	if(!sqlTxt){
+		return;
+	}
+	require(["js/formatter"], function(a){
+		var _f = a.format(sqlTxt.value);
+		// console.log('res:' + _f);
+		document.getElementById(destId).value = _f;
+	});	
+}
+
+</script>
