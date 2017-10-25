@@ -65,7 +65,7 @@ define(function(require, exports, module){
         this.lcToken = "";
         this.parenCounts = [];
         this.afterByOrFromOrSelects = [];
-        this.tokens = new StringTokenizer(sql, /(\(|\)|\+|\*|\/|-|=|<|>|'|`|"|\[|]|,| |\n|\r|\f|\t)/g);
+        this.tokens = new StringTokenizer(sql, /(\(|\)|\+|\*|\/|-|=|<|>|'|`|"|\[|]| |\n|\r|\f|\t)/g);
     }
 
 
