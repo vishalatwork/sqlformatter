@@ -219,6 +219,9 @@ define(function(require, exports, module){
     };
 
     FormatProcess.prototype.out = function() {
+        if(this.token){
+            this.token = this.token.toUpperCase();
+        }
         this.result += this.token;
     };
 
